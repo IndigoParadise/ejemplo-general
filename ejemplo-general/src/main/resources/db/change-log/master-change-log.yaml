@@ -1,0 +1,42 @@
+databaseChangeLog:
+  -  changeSet:
+      id: 1
+      author: CosmicAnguish
+      changes:
+        - createTable:
+            tableName: User
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: userName
+                  type: VARCHAR(100)
+                  constraints:
+                     nullable: false
+              - column:
+                  name: firstName
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: balance
+                  type: DECIMAL
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 2
+      author: CosmicAnguish
+      changes:
+        - addColumn:
+            tableName: User
+            columns:
+              - column:
+                 name: createdOn
+                 type: TIMESTAMP
+                 constraints:
+                   nullable: false
+
