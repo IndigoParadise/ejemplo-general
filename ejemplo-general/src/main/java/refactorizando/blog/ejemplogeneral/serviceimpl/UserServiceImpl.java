@@ -29,6 +29,7 @@ public class UserServiceImpl implements UserService {
     public ResponseEntity<SimpleResponse> saveUser(UserDTO user) throws FailedToCreateOrUpdateUser {
         UserEntity userEntity= UserUtils.mapUserDTOtoUser(user);
         userEntity=UserUtils.createInstant(userEntity);
+        userEntity.setId(UserUtils.generateRandomUUID());
         userEntity=userRepository.save(userEntity);
         if(UserUtils.isUserNull(userEntity))
             throw new FailedToCreateOrUpdateUser();
@@ -67,6 +68,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<SimpleResponse> updateUser(UserDTO user) throws FailedToCreateOrUpdateUser {
         UserEntity userEntity=UserUtils.mapUserDTOtoUser(user);
+        Optional<UserEntity> optionalUserEntity=userRepository.findById(user.getId());
+        if (optionalUserEntity.isEmpty())
+            throw new UserNotFoundException();
+        userEntity.setCreatedOn(optionalUserEntity.get().getCreatedOn());
         userEntity=userRepository.save(userEntity);
         if(UserUtils.isUserNull(userEntity))
             throw new FailedToCreateOrUpdateUser();

@@ -13,7 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>ejemplo-general</name>
-	<description>Contenido de diversaas tecnologias para aprender</description>
+	<description>Contenido de diversas tecnologias para aprender</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

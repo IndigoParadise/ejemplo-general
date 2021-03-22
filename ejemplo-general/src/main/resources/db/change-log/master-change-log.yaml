@@ -12,12 +12,12 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: userName
+                  name: user_name
                   type: VARCHAR(100)
                   constraints:
                      nullable: false
               - column:
-                  name: firstName
+                  name: first_name
                   type: VARCHAR(100)
                   constraints:
                     nullable: false
@@ -35,8 +35,19 @@ databaseChangeLog:
             tableName: User
             columns:
               - column:
-                 name: createdOn
+                 name: created_on
                  type: TIMESTAMP
                  constraints:
                    nullable: false
 
+  - changeSet:
+      id: 3
+      author: CosmicAnguish
+      changes:
+        - sqlFile:
+            relativeToChangelogFile: false
+            comment: Generating mock data
+            dbms: "h2"
+            endDelimiter: ;
+            splitStatemets: true
+            path: /User.sql
