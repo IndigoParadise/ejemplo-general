@@ -11,7 +11,7 @@
 	<groupId>refactorizando.blog</groupId>
 	<artifactId>ejemplo-general</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>ejemplo-general</name>
 	<description>Contenido de diversas tecnologias para aprender</description>
 	<properties>

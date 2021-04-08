@@ -1,0 +1,9 @@
+version: '3'
+services:
+  ejemplo-general:
+    build:
+      dockerfile: ./docker/ejemplo-general.dockerfile
+      context: ../../ejemplo-general
+    image: ejemplo-general:ejemplo-general #nombre-de-la-imagen:tag
+    ports:
+      - 8080:8080
