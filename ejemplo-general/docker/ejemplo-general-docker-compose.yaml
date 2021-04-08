@@ -1,0 +1,35 @@
+version: '3'
+services:
+  ejemplo-general:
+    build:
+      dockerfile: ./docker/ejemplo-general.dockerfile
+      context: ../../ejemplo-general
+    image: ejemplo-general:ejemplo-general #nombre-de-la-imagen:tag
+    ports:
+      - target: 8080
+        published: 8080
+        protocol: tcp
+        mode: host
+    networks:
+      - local
+  mysql_db:
+    container_name: mysql_db
+    image: mysql:latest
+    ports:
+      - target: 3306
+        published: 3306
+        protocol: tcp
+        mode: host
+    volumes:
+      - type: bind
+        source: ../src/main/resources/db/data
+        target: /var/lib/mysql
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pasword
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: test
+    networks:
+      - local
+networks:
+  local:

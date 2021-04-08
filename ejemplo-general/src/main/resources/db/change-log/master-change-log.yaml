@@ -36,10 +36,9 @@ databaseChangeLog:
             columns:
               - column:
                  name: created_on
-                 type: TIMESTAMP
+                 type: DATETIME
                  constraints:
                    nullable: false
-
   - changeSet:
       id: 3
       author: CosmicAnguish
@@ -47,7 +46,7 @@ databaseChangeLog:
         - sqlFile:
             relativeToChangelogFile: false
             comment: Generating mock data
-            dbms: "h2"
+            dbms: "h2,mysql"
             endDelimiter: ;
             splitStatemets: true
             path: /User.sql

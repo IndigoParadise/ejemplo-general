@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 public class DataSourceConfiguration {
 
     @Primary
-    @Bean(name = Constants.DATASOURCE_H2_NAME)
+    @Bean(name = Constants.DATASOURCE_NAME)
     @ConfigurationProperties(prefix = Constants.PREFIX_MAIN_DATASOURCE)
     public DataSource getDataSource(){
         return DataSourceBuilder.create().build();
@@ -27,7 +27,7 @@ public class DataSourceConfiguration {
         return new LiquibaseProperties();
     }
 
-    @Bean(name = Constants.SPRING_LIQUIBASE_H2)
+    @Bean(name = Constants.SPRING_LIQUIBASE)
     public SpringLiquibase liquibaseConfiguration(){
         return configureLiquibase(getDataSource(),getLiquibaseProperties());
     }
