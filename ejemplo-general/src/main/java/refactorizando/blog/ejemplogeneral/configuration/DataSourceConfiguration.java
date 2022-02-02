@@ -12,7 +12,7 @@ import refactorizando.blog.ejemplogeneral.constants.Constants;
 import javax.sql.DataSource;
 
 @Configuration
-public class DataSourceConfiguration {
+public class  DataSourceConfiguration {
 
     @Primary
     @Bean(name = Constants.DATASOURCE_NAME)

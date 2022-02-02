@@ -3,7 +3,7 @@ server:
 
 spring:
   profiles:
-    active: #change this according to needs
+    active: local #change if using other database
   datasource:
     generate-unique-name: false
     jdbcUrl: jdbc:mysql://localhost:3306/test
